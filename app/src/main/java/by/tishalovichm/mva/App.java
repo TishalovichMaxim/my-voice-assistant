@@ -38,7 +38,7 @@ public class App {
         WeatherRetriever weatherRetriever = new WeatherRetriever(objectMapper);
         WeatherInfo weatherInfo = weatherRetriever.getWeather();
 
-        int temperature = (int) Math.ceil(weatherInfo.current().temp_c() - 0.5);
+        int temperature = (int) Math.ceil(weatherInfo.current().tempC() - 0.5);
         System.out.printf("Temperature = %d\n", temperature);
 
         byte[] bytes = ttsService.getWav("The temperature is %d degrees Celsius.".formatted(temperature));

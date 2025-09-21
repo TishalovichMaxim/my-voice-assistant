@@ -1,8 +1,12 @@
 package by.tishalovichm.mva;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public record WeatherInfo(
     Temp current
 ) {
-    public record Temp(float temp_c) {
+    public record Temp(
+        @JsonProperty("temp_c") float tempC
+    ) {
     }
 }
