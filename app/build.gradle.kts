@@ -1,5 +1,6 @@
 plugins {
     application
+    id("io.freefair.lombok") version "9.0.0-rc2"
 }
 
 repositories {
@@ -12,6 +13,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     implementation(libs.guava)
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
 }
 
 java {
