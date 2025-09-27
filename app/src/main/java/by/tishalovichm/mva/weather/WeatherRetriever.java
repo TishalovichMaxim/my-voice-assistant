@@ -17,11 +17,14 @@ public class WeatherRetriever {
 
     private final ObjectMapper objectMapper;
 
+    private final WeatherMapper weatherMapper;
+
     private String apiKey;
 
     @SneakyThrows
-    public WeatherRetriever(ObjectMapper objectMapper) {
+    public WeatherRetriever(ObjectMapper objectMapper, WeatherMapper weatherMapper) {
         this.objectMapper = objectMapper;
+        this.weatherMapper = weatherMapper;
 
         Properties prop = new Properties();
 
@@ -35,7 +38,7 @@ public class WeatherRetriever {
     }
 
     @SneakyThrows
-    public WeatherInfo getWeather() {
+    public CurrentWeatherInfo getWeather() {
         try (HttpClient client = HttpClient.newBuilder().build()) {
             URI uri = URI.create(
                 "https://api.weatherapi.com/v1/current.json?key=%s&q=Minsk".formatted(apiKey));
@@ -48,7 +51,8 @@ public class WeatherRetriever {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String res = response.body();
 
-            return objectMapper.readValue(res, WeatherInfo.class);
+            CurrentWeatherApiInfo info = objectMapper.readValue(res, CurrentWeatherApiInfo.class);
+            return weatherMapper.fromDto(info);
         }
     }
 

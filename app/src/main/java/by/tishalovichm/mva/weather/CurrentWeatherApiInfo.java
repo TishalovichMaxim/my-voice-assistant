@@ -2,7 +2,7 @@ package by.tishalovichm.mva.weather;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record WeatherInfo(
+public record CurrentWeatherApiInfo(
     Temp current
 ) {
     public record Temp(

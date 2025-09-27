@@ -2,10 +2,8 @@ package by.tishalovichm.mva;
 
 import by.tishalovichm.mva.sound.SoundPlayer;
 import by.tishalovichm.mva.tts.TtsService;
-import by.tishalovichm.mva.weather.WeatherInfo;
+import by.tishalovichm.mva.weather.CurrentWeatherInfo;
 import by.tishalovichm.mva.weather.WeatherRetriever;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
@@ -18,16 +16,15 @@ public class ApplicationRunner {
 
     private final SoundPlayer soundPlayer;
 
+    private final WeatherRetriever weatherRetriever;
+
+    private final TtsService ttsService;
+
     @SneakyThrows
     public void run() {
-        var objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        var ttsService = new TtsService(objectMapper);
+        CurrentWeatherInfo weatherInfo = weatherRetriever.getWeather();
 
-        WeatherRetriever weatherRetriever = new WeatherRetriever(objectMapper);
-        WeatherInfo weatherInfo = weatherRetriever.getWeather();
-
-        int temperature = (int) Math.ceil(weatherInfo.current().tempC() - 0.5);
+        int temperature = (int) Math.ceil(weatherInfo.temperature() - 0.5);
         System.out.printf("Temperature = %d\n", temperature);
 
         byte[] bytes = ttsService.getWav("The temperature is %d degrees Celsius.".formatted(temperature));

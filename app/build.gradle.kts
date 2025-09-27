@@ -16,6 +16,10 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
 
     implementation("org.springframework:spring-context:6.2.11")
+
+    implementation("org.mapstruct:mapstruct:1.6.3")
+
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
 }
 
 java {
