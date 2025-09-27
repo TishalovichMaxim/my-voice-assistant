@@ -1,3 +1,5 @@
+Weather API I use: https://www.weatherapi.com/
+
 TODO:
 1. ~~Request weather in Mink and voice it.~~
 2. ~~Add an IoC container.~~

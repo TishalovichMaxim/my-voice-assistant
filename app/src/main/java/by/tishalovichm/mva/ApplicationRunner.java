@@ -1,5 +1,9 @@
 package by.tishalovichm.mva;
 
+import by.tishalovichm.mva.sound.SoundPlayer;
+import by.tishalovichm.mva.tts.TtsService;
+import by.tishalovichm.mva.weather.WeatherInfo;
+import by.tishalovichm.mva.weather.WeatherRetriever;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

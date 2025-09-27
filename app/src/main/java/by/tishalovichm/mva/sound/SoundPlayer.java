@@ -1,4 +1,4 @@
-package by.tishalovichm.mva;
+package by.tishalovichm.mva.sound;
 
 import org.springframework.stereotype.Service;
 

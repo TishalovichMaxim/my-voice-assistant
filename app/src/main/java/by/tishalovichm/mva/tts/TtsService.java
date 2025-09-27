@@ -1,4 +1,4 @@
-package by.tishalovichm.mva;
+package by.tishalovichm.mva.tts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

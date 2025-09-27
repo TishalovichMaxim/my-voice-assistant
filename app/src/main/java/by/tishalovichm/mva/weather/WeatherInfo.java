@@ -1,4 +1,4 @@
-package by.tishalovichm.mva;
+package by.tishalovichm.mva.weather;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
