@@ -2,6 +2,7 @@ package by.tishalovichm.mva;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
+import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -11,6 +12,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Properties;
 
+@Service
 public class WeatherRetriever {
 
     private final ObjectMapper objectMapper;
