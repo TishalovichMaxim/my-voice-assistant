@@ -1,0 +1,5 @@
+services:
+  local-ai:
+    image: localai/localai:latest
+    ports:
+      - "18080:8080"
