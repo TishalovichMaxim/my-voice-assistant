@@ -20,6 +20,8 @@ dependencies {
     implementation("org.mapstruct:mapstruct:1.6.3")
 
     annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
+
+    implementation("ch.qos.logback:logback-classic:1.5.18")
 }
 
 java {

@@ -4,4 +4,5 @@ TODO:
 1. ~~Request weather in Mink and voice it.~~
 2. ~~Add an IoC container.~~
 3. ~~Add docker-compose for local-ai~~
-4. Add rain caution
+4. ~~Add logging framework~~
+5. Add rain caution
